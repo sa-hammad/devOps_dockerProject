@@ -1,20 +1,13 @@
-import redis
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
-redis = redis.Redis(host='redis', port=6379, db=0)
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    return render_template('index.html')
 
-@app.route('/visitor')
-def visitor():
-    redis.incr('visitor')
-    visitor_num = redis.get('visitor').decode('utf-8')
-    return "Visitors: %s" % (visitor_num)
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
-@app.route('/visitor/reset')
-def reset_visitor():
-    redis.set('visitor', 0)
-    visitor_num = redis.get('visitor').decode('utf-8')
-    return "Visitor is reset to %s" % (visitor_num)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)
