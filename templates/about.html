@@ -2,8 +2,9 @@
 
 {% block content %}
     <h1>{% block title %} Welcome to Docker {% endblock %}</h1>
-    <h6>About Docker Project</h6>
-    <div>This is a graduation project for DevOps course, sponsored by the Egyptian National Council and the United Nations.</div>
+    <h3 class="font-weight-bold">About Docker Project</h3>
+    <blockquote class="blockquote" style="font-size: 1.5rem;">
+    <div class="f">This is a graduation project for DevOps course, sponsored by the Egyptian National Council and the United Nations.</div>
     <div>At this project I created a Dockerfile to build an image based on "python:3.7-alpine" and start a new container based on this image </div>
     <div><span>To build an image from the Dockerfile run this command</span><br />
     <p><code>docker image build -t &lt;imageName&gt;:&lt;imageTag&gt; .</code></p>
@@ -11,4 +12,6 @@
     <div><span>To start a new container based on the created image run this command</span><br />
         <p><code>docker container run -d --name &lt;containerName&gt; -p 5000:5000 &lt;imageName&gt;:&lt;imageTag&gt; .</code></p>
         </div>
+        <foorer class="blockquote-footer">Samah Hammad</foorer>
+    </blockquote>
 {% endblock %}
